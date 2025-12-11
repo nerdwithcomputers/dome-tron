@@ -11,6 +11,7 @@ class Player{
     _speed = 1
     _w = 10
     _h = 10
+    _turnCoords.add([_x,_y])
   }
   coords{
     [_x,_y]
@@ -45,7 +46,7 @@ class Player{
     //   Canvas.rectfill(coord[0]-2,coord[1]-2, 4,4, _color)
     // }
     _i = 0
-    while(_i < _turnCoords.count-1){
+    while(_i < _turnCoords.count-1){  
       Canvas.line(
         _turnCoords[_i][0],_turnCoords[_i][1],
         _turnCoords[_i+1][0],_turnCoords[_i+1][1],

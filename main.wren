@@ -10,10 +10,8 @@ class Main{
   init(){
     _width = 90
     _height = 90
-    // Canvas.resize(1600,900)
+    // Canvas.resize(_height,_width)
     _red = Player.new(Color.rgb(223, 116, 12), "up", [100,100])
-    _l = [1,2,3]
-    System.print(_l[-1])
   }
   
   update(){
