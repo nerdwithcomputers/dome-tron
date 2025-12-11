@@ -10,7 +10,7 @@ class Main{
     _y = 100
     _w = 5
     _h = 5
-    _red = Player.new(Color.rgb(171, 82, 54), "up", [100,100])
+    _red = Player.new(Color.rgb(223, 116, 12), "up", [100,100])
   }
   
   update(){
