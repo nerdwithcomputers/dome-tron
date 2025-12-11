@@ -1,6 +1,8 @@
 import "graphics" for Canvas, Color
 import "input" for Keyboard
 
+var collisionList = []
+
 class Main{
   construct new(){}
   init(){
@@ -33,6 +35,7 @@ class Player{
   }
   update(){
     _lastCoords.add([_x,_y])
+    collisionList.add([_x,_y])
     if      (Keyboard.isKeyDown("w") && _facing!="down"){
       _facing = "up"
     }else if(Keyboard.isKeyDown("a") && _facing!="right"){
