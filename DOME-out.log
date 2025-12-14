@@ -1,3 +1,5 @@
 Reading from filesystem: /home/m1raclemax/Documents/dome-tron/main.wren
 Reading from filesystem: /home/m1raclemax/Documents/dome-tron/player.wren
-3
+Runtime error: Player does not implement 'turnListMap'.
+  54: player
+  19: main
