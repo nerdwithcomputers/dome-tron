@@ -3,7 +3,7 @@ import "input" for Keyboard
 import "player" for Player
 import "dome" for Process
 
-var collisionList = []
+var turnListDict = {}
 
 class Main{
   construct new(){}
@@ -11,12 +11,16 @@ class Main{
     _width = 90
     _height = 90
     // Canvas.resize(_height,_width)
-    _red = Player.new(Color.rgb(223, 116, 12), "up", [100,100])
+    _red = Player.new(
+      Color.rgb(223, 116, 12), "up", [100,100],
+      turnListDict
+    )
+    
   }
   
   update(){
     if(Keyboard.isKeyDown("ESCAPE")) Process.exit(0)
-    _red.update()
+    _red.update(turnListDict)
     
   }
   

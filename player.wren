@@ -3,28 +3,21 @@ import "graphics" for Canvas, Color
 import "dome" for Process
 
 class Player{
-  construct new(color, facing, coordsStart){
+  construct new(color, facing, coordsStart, turnListDict){
     _color = color
     _facing = facing
     _x = coordsStart[0]
     _y = coordsStart[1]
-    _turnCoords = []
+    turnListDict[_color] = []
     _speed = 1
     _w = 10
     _h = 10
-    _turnCoords.add([_x,_y])
+    turnListDict[_color].add([_x,_y])
   }
   coords{
     [_x,_y]
   }
-  turnCoords{
-    _turnCoords
-  }
-  
-  update(){
-    // _turnCoords.add([_x,_y])
-    // collisionList.add([_x,_y])
-    // System.print(_turnCoords)
+  update(turnListDict){
     
     // store facing for later check
     _lastfacing = _facing
@@ -39,7 +32,10 @@ class Player{
       _facing = "right"
     }
     // detect a turn, this way needs less copypaste code
-    if(_facing != _lastfacing) _turnCoords.add([_x,_y])
+    if(_facing != _lastfacing){
+      turnListDict[_color].add([_x,_y])
+    }
+    
     // finally actually move
     if      (_facing=="up"){
       _y = _y - _speed
@@ -51,7 +47,7 @@ class Player{
       _x = _x + _speed
     }
 
-    for(turnList in turnListMap){
+    for(turnList in turnListDict){
       _i = 0
       while(_i<turnList.count-2){
         if(turnList[i][0]==turnList[i+1][0] && _x==turnList[i][0]){
